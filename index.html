@@ -1,0 +1,480 @@
+<!Doctype html>
+<html lang="en">
+<head>
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+<link rel="stylesheet" href="css/style.css" type="text/css" /> 
+
+<!--Google fonts-->
+     
+<title>FCC Technical Documentation Page Project: JavaScript</title>
+
+</head>
+    
+<body>
+<!---navbar--->
+<nav id="navbar">
+    <header id="page_title">JavaScript</header>
+    <h1 id="mob_page_title">JS</h1>
+    <ul id="pg_nav" class="hidden">
+        <li><a href="#introduction" class="nav-link">Introduction</a></li>
+        <li><a href="#js_basics" class="nav-link">JS Basics</a></li>
+        <li><a href="#exercises" class="nav-link">Exercises</a></li>
+        <li><a href="#glossary" class="nav-link">Glossary</a></li>
+        <li><a href="#appendix" class="nav-link">Appendix</a></li>
+    </ul>
+</nav>
+<!---below ribbon only shows in desktop/tablet windows--->    
+<div id="ribbon_bottom"></div>
+    
+<main id="main-doc">
+    <section class="main-section" id="introduction">
+        <header class="topic_heading">
+         <em>Introduction</em>
+        </header>
+<!---welcome to js info--->       
+        <article>
+            <p class="content">Javascript, also known as JS, is a cross-platform, object-oriented scripting language that provides interactivity to a website. Users experience Javascript throughout most websites through fluctuating layouts, responses to button clicks, image galleries, and much more.</p>
+            
+            <h1 class="subheading"><em>What you should already know...</em></h1>
+            <p class="content">This guide assumes you are currently familiar with and have an understanding of the Internet and the World Wide Web (WWW), HyperText Markup Language (HTML), and have prior programming experience.</p>
+            <p class="content">Be sure to properly organize and have a sensible file structure within the webpage root folder or directory, before utilizing Javascript. Aside from the HTML index file, different external files of code, like those containing the Javascript code or the CSS stylesheets, should be in a separate folder. The external Javascript file should be in a scripts folder, and the Javascript file should be linked appropriately within the index file, like you would for an external CSS stylesheet.</p>
+            
+            <code class="codebox">
+            <p class="code_content">To link an external Javascript file in the index.html file, use the following element within the index.html:</p>  
+            <p>&#60;script type="text/javascript"  src="scripts/main.js"&#62;&#60;/script&#62;</p>
+            <p class="code_content">The external Javascript file does not need to be named "main". Common names for Javascript files is "js", which allows the programmer to quickly identify the file. Additionally, the above element can either be placed in the head or the body of the index.html.</p>
+            </code>
+            
+        </article>    
+    </section>
+<!---intro to js basics--->     
+    <section class="main-section" id="js_basics">
+        <header class="topic_heading">
+            <em>JS Basics</em>
+        </header>
+        
+        <article>
+            <h1 class="subheading">Variables</h1>
+            <p class="content">Variables appear in other programming languages. In Javascript, variables are containers that store data type values. These data types include arrays, booleans, null, numbers, objects, strings, and undefined.</p>
+            <p class="content">To create a variable, the keyword "var", "const", or "let" is used before providing a name for the variable and a semi-colon. To store a value for the variable and equal sign and value is declared before the semi-colon. The keyword used depends on the programming needs.</p>
+            <p class="content">Beware that JavaScript is case sensitive, so be consistent with your naming conventions. Moreover, there are some naming restrictions. Names you choose must start with a letter, underscore (_), or dollar sign ($). Only subsequent characters in the name can also be digits (0-9).</p>
+            
+            <code class="codebox">
+                <p class="code_content">GOOD PRACTICE TIP: Use camelCase naming conventions!</p>
+            var name;<br>
+            var greeting = "hi";<br>
+            let times = 4;<br>
+            const numWord = "two";
+            </code>
+            
+            <h1 class="subheading">Declaration vs. Initialization</h1>
+            <p class="content">
+            You can <strong><em>declare</em></strong> a variable in two ways:</p>
+            <p class="content">
+                With the keyword var. For example, var x = 42. This syntax can be used to declare both local and global variables, depending on the execution context. </p>
+            <p class="content">
+                With the keyword const or let. For example, let y = 13. This syntax can be used to declare a block-scope local variable. The const keyword creates a block-scoped, read-only variable.</p>
+            <p class="content">
+                You can also simply assign a value to a variable For example, x = 42. This form creates an undeclared global variable. It also generates a strict JavaScript warning. Undeclared global variables can often lead to unexpected behavior. Thus, it is discouraged to use undeclared global variables.
+            </p>
+            <p class="content">
+            A variable declared using the var or let statement with no assigned value specified has the value of undefined. An attempt to access an undeclared variable results in a ReferenceError exception being thrown. You can use undefined to determine whether a variable has a value. The undefined value behaves as false when used in a boolean context. The undefined value converts to NaN (meaning Not a Number) when used in numeric context. When you evaluate a null variable, the null value behaves as 0 in numeric contexts and as false in boolean contexts. 
+            </p>
+            
+            <p class="content">
+            In simplified terms, 
+                declaration names and creates the variable (allocates storage for the variable within a corresponding scope), while  initialization (which happens automatically when a variable is declared) allows for storage of a value in the variable (be it undefined by default or another data type). Assignment is essentially when a specific value is provided to the variable. 
+            </p>
+            
+            <code class="codebox">
+            <p class="code_content">GOOD PRACTICE TIP: Place all declarations at the top of each function or script. The same should be done for loop variables as well. Initializing the variables when you declared them is also good coding practice. Initializing variables provides an idea of the intended use (and intended data type).</p>
+                
+            let x; // Declaration and initialization <br>
+                x = "Hello World"; // Assignment <br>
+
+                // Or all in one <br>
+                let y = "Hello World";    
+            </code>
+            
+            <h1 class="subheading">Scope</h1>
+            <p class="content">
+                In JavaScript there are two types of scope, local and global scope. JavaScript has function scope: Each function creates a new scope. Scope determines the accessibility (visibility) of variables. In JavaScript, objects and functions are also variables.</p>
+            <p class="content">
+                Variables defined inside a function are not accessible (visible) from outside the function.
+            </p>
+            <p class="content">
+            Variables declared within a JavaScript function, become LOCAL to the function. Local variables have Function scope, meaning they can only be accessed from within the function. Since local variables are only recognized inside their functions, variables with the same name can be used in different functions. Local variables are created when a function starts, and deleted when the function is completed.
+            </p>
+            <code class="codebox">
+                // code here can NOT use carName <br>
+                function myFunction() { <br>
+                var carName = "Volvo"; <br>
+                // code here CAN use carName <br>
+                }
+            </code>
+            
+            <p class="content">
+            A variable declared outside a function, becomes GLOBAL. A global variable has global scope, meaning all scripts and functions on a web page can access this variable. 
+            </p>
+            <code class="codebox">
+                var carName = "Volvo"; <br>
+                // code here can use carName <br>
+                function myFunction() { <br>
+                // code here can also use carName <br>
+                }
+            </code>
+            
+            <p class="content">
+            If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable. In a web browser, global variables are deleted when you close the browser window (or tab), but remain available to new pages loaded into the same window.
+            </p>
+            <code class="codebox">
+                myFunction();<br>
+                // code here can use carName <br>
+                function myFunction() { <br>
+                carName = "Volvo"; <br>
+                }
+            </code>
+            
+            <p class="content">
+            With JavaScript, the global scope is the complete JavaScript environment. Unlike in HTML, when the global scope is the window object and all global variables belong to the window object.
+            </p>
+            
+            <code class="codebox">
+            <p class="code_content">GOOD PRACTICE TIP: Do NOT create global variables unless you intend to. Your global variables (or functions) can overwrite window variables (or functions).
+                Any function, including the window object, can overwrite your global variables and functions.</p>
+            </code>
+               
+            <h1 class="subheading">Hoisting</h1>
+            <p class="content">Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope (to the top of the current script or the current function). In JavaScript, a variable can be declared after it has been used, meaning a variable can be used before it has been declared. Variables and constants declared with let or const are not hoisted! Moreover, JavaScript only hoists declarations, not initializations.</p>
+            <code class="codebox">
+                x = 5; // Assign 5 to x <br>
+                elem = document.getElementById("demo"); // Find an element <br>
+                elem.innerHTML = x; // Display x in the element <br>
+                var x; // Declare x 
+                <p class="code_content"><strong>is the SAME as</strong></p>
+                var x; // Declare x <br>
+                x = 5; // Assign 5 to x <br>
+                elem = document.getElementById("demo"); // Find an element <br>
+                elem.innerHTML = x; // Display x in the element
+                <p class="code_content"><strong>BUT</strong></p>
+                var x = 5; // Initialize x <br>
+                var y = 7; // Initialize y <br>
+                elem = document.getElementById("demo"); // Find an element <br>
+                elem.innerHTML = x + " " + y; // Display x and y 
+                <p class="code_content"><strong>is NOT the same as</strong>
+                </p>
+                var x = 5; // Initialize x <br>
+                elem = document.getElementById("demo"); // Find an element <br>
+                elem.innerHTML = x + " " + y; // Display x and y <br>
+                var y = 7; // Initialize y
+                <p class="code_content">This is because only the declaration (var y), not the initialization (=7) is hoisted to the top. </p>
+            </code>
+                
+                <code class="codebox">
+                    <p class="code_content">
+                    Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined. That is like writing, </p>
+                    var x = 5; // Initialize x <br>
+                    var y; // Declare y <br>
+                    elem = document.getElementById("demo"); // Find an element <br>
+                    elem.innerHTML = x + " " + y; // Display x and y <br>
+                    y = 7;    // Assign 7 to y
+                </code>
+            
+            <h1 class="subheading">Functions</h1>
+            <p class="content">A function is a JavaScript procedure—a set of statements that performs a task or calculates a value. To use a function, you must define it somewhere in the scope from which you wish to call it. A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by the name of the function, a list of parameters to the function (which is enclosed in parentheses and separated by commas), and JavaScript statements that define the function, enclosed in curly brackets, { }.</p>
+            
+            <p class="content">
+            Function parameters are the names listed in the function definition. Function arguments are the real values passed to (and received by) the function. A function can be given multiple parameters and arguments, which are separated by commas within the parentheses. The parameters, in a function call, are the function's arguments. If a function is called with missing arguments (less than declared), the missing values are set to undefined.JavaScript arguments are passed by value, meaning the function only gets to know the values, not the argument's locations.If a function changes an argument's value, it does not change the parameter's original value. Changes to arguments are not visible or reflected outside the function. The arguments of a function are not limited to strings and numbers. You can pass whole objects to a function. 
+            </p>
+            <code class="codebox">
+            function functionName(parameter1, parameter2, parameter3) { <br>
+            // code to be executed <br>
+            }
+            </code>
+            
+            <code class="codebox">
+                <p class="code_content">
+                The function square takes one parameter, called number. The function consists of one statement that says to return the parameter of the function (that is, number) multiplied by itself. The statement return specifies the value returned by the function.</p>
+                function square(number) { <br>
+                return number * number; <br>
+                }
+                
+                <p class="code_content">
+                Parameters, such as a number, are passed to functions by value. The value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function. </p>
+                
+                <p class="code_content">
+                If you pass an object, such as Array or a user-defined object, as a parameter and the function changes the object's properties, that change is visible outside the function (as shown below).
+                </p>
+                
+                function myFunc(theObject) { <br>
+                theObject.make = 'Toyota'; <br>
+                } <br>
+                var mycar = {make: 'Honda', model: 'Accord', year: 1998}; <br>
+                var x, y; <br>
+                x = mycar.make; // x gets the value "Honda" <br>
+                myFunc(mycar); <br>
+                y = mycar.make; // y gets the value "Toyota" <br>
+                // (the make property was changed by the function)
+                </code>
+            
+                <p class="content">Functions do not require a name.</p>
+            
+                <code class="codebox">
+                function square(number) { <br>
+                return number * number; <br>
+                }
+                <p class="code_content">
+                could instead have been written as:
+                </p>
+                var square = function(number) { return number * number; }; <br>
+                <p class="code_content">
+                where, when either function is used, returns the same value.
+                </p>
+                return square(4);// returns the value 16 <br>
+                var x = square(4); // x gets the value 16 
+            </code>
+            
+            <p class="content">A <strong>method</strong> is a function that is a property of an object.</p>
+            
+            <p class="content">
+            Defining a function does not execute it. Defining the function simply names the function and specifies what to do when the function is called. <strong>Calling</strong> the function actually performs the specified actions with the indicated parameters. 
+            </p>
+            <code class="codebox">
+            return square(4);// calls the function and returns the value 16 
+            <p class="code_content">The preceding statement calls the function with an argument of 4. The function executes its statements and returns the value 16. Functions must be in scope when they are called, but the function declaration can be hoisted.</p>
+            </code>
+            
+            <p class="content">
+            Variables defined inside a function cannot be accessed from anywhere outside the function, because the variable is defined only in the scope of the function. However, a function can access all variables and functions defined inside the scope in which it is defined. In other words, a function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function and any other variable to which the parent function has access.
+            </p>
+            <code class="codebox">
+            // The following variables are defined in the global scope <br>
+            var num1 = 20, <br>
+                num2 = 3, <br>
+                name = 'Chamahk'; <br>
+            // This function is defined in the global scope <br>
+            function multiply() { <br>
+              return num1 * num2; <br>
+            } <br>
+                
+            multiply(); // Returns 60 <br>
+            // A nested function example <br>
+            function getScore() { <br>
+              var num1 = 2, <br>
+                  num2 = 3; <br>
+
+              function add() { <br>
+                return name + ' scored ' + (num1 + num2); <br>
+              } <br>
+
+              return add(); <br>
+            } <br>
+
+            getScore(); // Returns "Chamahk scored 5"
+            </code>
+            
+            <p class="content">
+            A function can refer to and call itself. There are three ways for a function to refer to itself, which are by using the function's name,  arguments.callee, or by using an in-scope variable that refers to the function.
+            </p>
+            
+            <h1 class="subheading">Events</h1>
+            <p class="content">These are code structures which listen for things happening in browser, running code in response.The most obvious example is the click event, which is fired by the browser when you click on something with your mouse.</p>
+            
+            <code class="codebox">
+            document.querySelector('html').onclick = <br>
+            function() { <br>
+            alert('Ouch! Stop poking me!'); <br>
+                }
+            <p class="code_content">
+            The above code entered into the console or text editor causes an alert pop-up message window to appear when the mouse is clicked. Moreover, the pop-up window would state the page says the given string, "Ouch! Stop poking me!".    
+            </p>
+            </code>
+            
+            <h1 class="subheading">Commenting</h1>
+            <p class="content">JavaScript commenting is created in the same way comments are created in CSS stylesheets, using forward slashes, asterisks, and/or backslashes.</p>
+            
+            <code class="codebox">
+            /* Multi-line comment about the JS code*/<br>
+                //Single-line comment about the JS code
+            </code>
+        </article>
+        
+    </section>
+    
+    <section class="main-section" id="exercises">
+        <header class="topic_heading">
+            <strong><em>Exercises</em></strong>
+        </header>
+        
+        <div id="questions">
+        <h1 class="subheading"><em>Exercise 1 - Operators</em></h1>
+            <p class="content">An operator is a mathematical symbol which produces a result based on two values (or variables).</p>
+            <p class="content">Operators include ones for addition, subtraction, multiplication, division, assignment, logical, and comparison. These all allow for values to be manipulated.</p>
+            <p class="content_subheading"><strong>Directions: </strong>Type each of the following in a Javascript console or text editor.</p>
+    
+                <code class="q_codebox">
+                    <p class="q_code_content">1. </p>
+                    var foo = 'hello';<br>
+                    var bar = 'world';<br>
+                    console.log(foo + ' ' + bar);
+                </code>
+                
+                <code class="q_codebox">
+                    <p class="q_code_content">2. </p>
+                    console.log(2 + 3);
+                </code>
+            
+                <code class="q_codebox">
+                    <p class="q_code_content">3. </p>
+                    console.log(2 * 3);
+                </code>
+            
+                <code class="q_codebox">
+                    <p class="q_code_content">4. </p>
+                    var myVariable = 'Bob';<br>
+                    console.log(myVariable);
+                </code>
+            
+        <p class="content_subheading">Results:</p>
+        <code class="codebox ans_toggle">
+        <p class="code_content reveal text_center">
+            CLICK TO REVEAL!    
+        </p>    
+        <p class="code_content ans hidden">
+            The above code should have returned and printed the following:<br>
+            1. hello world <br>
+            2. 5 <br>
+            3. 6 <br>
+            4. Bob <br>
+        </p>    
+        </code>
+        
+        <!---exercise format
+        <h1 class="subheading"><em>Exercise 2</em></h1>
+        <p class="content_subheading">Directions/Steps</p>
+        <p class="content_subheading">Answer</p>
+        <code class="codebox">
+        </code>
+        --->
+        
+        </div>    
+    </section>
+    
+    <section class="main-section" id="glossary">
+        <header class="topic_heading">
+           <em>Glossary</em>
+        </header>
+        
+        <article>
+            <p class="voc"><strong><em>Array</em></strong> - a data type. This structure that allows for multiple stored values in one single reference</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var myVariable = [1,'Bob','Steve',10];<br>
+                <p class="code_content">Refer to each member of the array using an indexed number in square brackets for the specified array element (starting at [0] for the first positioned element) like this:</p>
+                myVariable[0], myVariable[1], etc.    
+            </code>
+            
+            <p class="voc"><strong><em>Assignment</em></strong> - a specified value is given to a variable</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            x = "Hello World";    
+            </code>
+            
+            <p class="voc"><strong><em>Boolean</em></strong> - a data type. A True/False value, which are special keywords in JS, and don't require quotes around the value</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var myVariable = true;    
+            </code>
+            
+            <p class="voc"><strong><em>camelCase</em></strong> - a naming convention in which </p>
+            <code class="voc_code">
+                <p class="code_content">Examples: Num_hits, numHits, temp99, $cred, _name</p>
+            </code>
+            
+            <p class="voc"><strong><em>Declaration</em></strong> - registers an identifier name and corresponding scope to a variable</p>
+            
+            <p class="voc"><strong><em>Function</em></strong> - a set of statements that performs a task</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+                var factorial = function fac(n) { return n &#60; 2 ? 1 : n * fac(n - 1); }; <br>
+                console.log(factorial(3));
+            </code>
+            
+            <p class="voc"><strong><em>Hoisting</em></strong> - JavaScript variables are hoisted, meaning that within a variable’s current scope, the variable will be hoisted to the top regardless of its placement. If the variable is initialized, when it is hoisted to the top it will initially be set to  undefined.</p>
+            
+            <p class="voc"><strong><em>Initialization</em></strong> - memory is allocated to the variable </p>
+            
+             <p class="voc"><strong><em>Number</em></strong> - a data type. A numerical value that does not require quotes around the value</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var myVariable = 10;    
+            </code>
+            
+            <p class="voc"><strong><em>Object</em></strong> - a data type and basically, any element. Everything in JavaScript is an object, and can be stored in a variable</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var myVariable = document.querySelector('h1');
+            </code>
+            
+            <p class="voc"><strong><em>Scope</em></strong> - the accessibility (visibility) of variables for use</p>
+            
+            <p class="voc"><strong><em>String</em></strong> - a data type. A sequence of text enclosed in single or double quote marks</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var myVariable = 'Bob';    
+            </code>
+            
+            <p class="voc"><strong><em>Variable</em></strong> - container that stores data value(s), which can be changed at any time</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            var greeting = "hi";
+            </code>
+
+            <!---voc format
+            <p class="voc"><strong><em>Word</em></strong> - Definition</p>
+            <code class="voc_code">
+            <p class="code_content">Example:</p>
+            </code>
+            --->
+        </article>
+        
+    </section>
+    
+    <section class="main-section" id="appendix">
+        <header class="topic_heading">
+            <em>Appendix</em>
+        </header>
+        
+        <div id="ref_resrc">
+        <h1 class="subheading">References &#38; Resources</h1>
+        
+        <ul id="resources">
+            <p class="content">All documentation in this page is taken from the following:</p>
+            <li><a class="sect_link" href="https://www.codecademy.com/articles/glossary-javascript">Codecademy</a></li>
+            <li><a class="sect_link" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">MDN</a></li>
+            <li><a class="sect_link" href="https://www.sitepoint.com/how-to-declare-variables-javascript/">Sitepoint</a></li>
+            <li><a class="sect_link" href="https://www.w3schools.com/js/js_conventions.asp">W3Schools</a></li>
+            
+            <li></li>
+        </ul>
+        </div>
+    </section>
+    
+</main>
+
+<!--jquery-->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+   <!--jquery ui-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+<!--external jquery-->    
+    <script src="scripts/jquery.js"></script> 
+
+
+<!---tests if project fulfills requirements for FCC---> 
+<script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
+</body>
+</html>

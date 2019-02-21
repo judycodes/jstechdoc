@@ -1,0 +1,274 @@
+html, body {
+  margin:0;
+  box-sizing: border-box;
+    background-color:rgb(
+150, 134, 139);
+    background-color:rgba(
+150, 134, 139, 0.2);
+}
+
+.hidden {
+    display:none;
+}
+
+#navbar {
+    position:fixed;
+    top:2%;
+    right:6%;
+    z-index:1;
+    
+    display:flex;
+    flex-direction:column;
+    align-items:center; 
+    justify-content:space-around;
+    
+    padding:5px;
+    border-radius: 5px;
+}
+
+#mob_page_title {
+    padding:10px;
+    margin:20px 10px 10px;
+    border: 2px solid #B06D81;
+    border-radius:5px;
+    color: #B06D81;
+}
+
+#page_title {
+    display:none;
+}
+
+#navbar ul, #resources {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul {
+    background-color: rgb(176, 109, 129);
+    background-color: rgba(176, 109, 129, 0.8);
+    border-radius:5px;
+}
+
+.nav-link {
+    text-decoration:none;
+    color:#fff;
+}
+
+#pg_nav li, #resources li {
+    padding:5px;
+    margin: 10px;
+}
+
+#ribbon_bottom {
+    display:none;
+}
+
+#main-doc {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:10px;
+    margin: 5px 10px;
+        background-color:rgb(
+150, 134, 139);
+    background-color:rgba(
+150, 134, 139, 0.2);
+}
+
+.main-section {
+    border: 7px double #B07A6D;
+    padding:20px;
+    margin-bottom: 10px;
+    background-color:#fff;
+}
+
+#js_basics {
+    margin:0px 80px 10px;
+}
+
+#introduction {
+    margin-top:10px;
+}
+
+.topic_heading {
+    padding:10px 0px 10px;
+    margin:10px 0px 10px;
+    color: #796741;
+}    
+
+article, #questions, #ref_resrc {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.content, .content_subheading, .voc {
+    color:#B07A6D;
+}
+
+.content {
+    text-indent: 20px;
+    margin: 5px 0px;
+}
+
+.codebox, .q_codebox {
+    display:block;
+    background-color: rgb(
+176, 122, 109);
+    background-color: rgba(
+176, 122, 109, 0.2);
+    padding:15px;
+    margin:5px 0px;
+    border-radius: 5px;
+    border: 3px ridge #B09B6D;
+}   
+
+.code_content, .q_code_content {
+    color:#796741;
+}
+
+.text_center {
+    text-align:center;
+}
+
+.sect_link {
+    color: #B09B6D;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+}    
+    
+.subheading {
+    border-bottom: 3px ridge #B09B6D;
+    padding-bottom:5px;
+    text-align:center;
+    color: #796741;
+    font-variant: small-caps;
+}
+
+.voc {
+    margin-bottom:10px;
+} 
+    
+.voc_code {
+    display:block;
+    background-color: rgb(
+176, 122, 109);
+    background-color: rgba(
+176, 122, 109, 0.2);
+    padding:15px;
+    margin:5px 0px;
+    border-radius: 5px;
+    border: 3px ridge #B09B6D;
+} 
+
+/*media query*/
+@media only screen and (min-width: 700px) {
+
+#mob_page_title {
+    display:none;
+}
+    
+#page_title {
+    display:block;
+    padding:20px;
+    margin: 15px 10px 10px;
+    border: 2px solid #fff;
+    border-radius:5px;
+    color: #fff; 
+}    
+    
+#navbar {
+    position:fixed;
+    top:0;
+    left:1%;
+    z-index:1;
+    height:35%;
+    width:180px;
+    padding:10px;
+    background-color: #B06D81;
+}
+
+#page_title {
+    font-size:25px;
+}
+
+#pg_nav {
+    display:block;
+}
+    
+.nav-link {
+    color:#fff;
+    font-size:20px;
+}
+
+#ribbon_bottom {
+    display:block;
+    height: 30%;
+	width: 0;
+	border-left: 100px solid #B06D81;
+	border-right: 100px solid #B06D81;
+	border-bottom: 100px solid transparent;
+	border-top: 100px solid #B06D81;
+    position:fixed;
+    top:0;
+    left:1%;
+    z-index:0;
+    }  
+
+#main-doc {
+    padding-left:20px;
+    margin-right:20px;
+    margin-left: 240px;
+}
+
+.main-section {
+    padding:30px;
+    margin-bottom: 50px;
+    width:85%;
+}
+
+#introduction {
+    margin-top:50px;
+}
+.topic_heading {
+    font-size:30px;
+}    
+
+.content, .content_subheading, .voc {
+    font-size:20px;
+    width:90%;
+}
+
+.codebox {
+    width:50%;
+}   
+
+.q_codebox {
+    width:30%;
+}
+    
+.code_content {
+    font-size:15px;
+}
+    
+.sect_link {
+    font-size: 17px;
+}    
+    
+.subheading {
+    font-size: 25px;
+    width:25%; 
+}
+    
+.voc_code {
+    width:40%;
+} 
+    
+#ref_resrc ul {
+    width:100%;
+    text-align:center;
+}
+
+}
