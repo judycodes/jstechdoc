@@ -7,14 +7,22 @@ html, body {
 150, 134, 139, 0.2);
 }
 
+header, h1 {
+font-family: 'Ovo', serif;
+} 
+
+.nav-link, .sect_link, p {
+font-family: 'Gudea', sans-serif;
+}
+
 .hidden {
     display:none;
 }
 
 #navbar {
     position:fixed;
-    top:2%;
-    right:6%;
+    top:1%;
+    right:4%;
     z-index:1;
     
     display:flex;
@@ -22,16 +30,17 @@ html, body {
     align-items:center; 
     justify-content:space-around;
     
-    padding:5px;
+    padding:3px;
     border-radius: 5px;
 }
 
 #mob_page_title {
-    padding:10px;
+    padding:15px;
     margin:20px 10px 10px;
     border: 2px solid #B06D81;
     border-radius:5px;
     color: #B06D81;
+    background-color:#fff;
 }
 
 #page_title {
